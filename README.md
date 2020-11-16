@@ -5,7 +5,6 @@ from app.pages import search, results
 
 
 def test_find_author(browser):
-
     br = browser
     author = 'Гофман'
     app.open_page(br, 'findp.php4')
