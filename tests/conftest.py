@@ -1,6 +1,7 @@
 import os
 import pytest
-from selenium.webdriver import Firefox
+from selenium import webdriver
+# from selenium.webdriver import Firefox
 
 
 @pytest.fixture
@@ -11,7 +12,11 @@ def browser():
         # run selenoid container
         pass
     else:
-        br = Firefox()
+        capabilities = {
+                    'browserName': 'firefox',
+                    'version': '80',
+                }
+        br = webdriver.Remote('http://localhost:4444/wd/hub', capabilities)
         br.maximize_window()
     yield br
     br.quit()
