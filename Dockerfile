@@ -5,4 +5,4 @@ WORKDIR /uitests
 COPY requirements.txt /uitests/
 RUN pip install -r requirements.txt
 COPY . /uitests/
-CMD pytest
+CMD pytest $PYTEST_FLAG
